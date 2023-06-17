@@ -53,7 +53,7 @@
         "outputs": []
       },
       "dev": {
-        "cache": false
+        "cache": true
       }
     }
   },
