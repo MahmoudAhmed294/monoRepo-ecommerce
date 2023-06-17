@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const withTM = require('next-transpile-modules')(['ui']);
+const nextConfig = {};
 
-module.exports = withTM({
-  reactStrictMode: true,
-});
+module.exports = nextConfig;
