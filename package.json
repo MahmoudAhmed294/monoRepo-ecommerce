@@ -7,8 +7,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "engines": {
-    "node": ">=16.8.0",
-    "yarn": ">=1.22.19",
+    "node": ">=18.16.0",
+    "yarn": ">=3.6.0",
     "npm": "please-use-yarn"
   },
   "devDependencies": {
@@ -19,7 +19,7 @@
     "turbo": "latest"
   },
   "name": "shop",
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@3.6.0",
   "workspaces": [
     "apps/*",
     "packages/*"
