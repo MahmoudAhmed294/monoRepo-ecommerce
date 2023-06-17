@@ -6,6 +6,11 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "engines": {
+    "node": ">=16.8.0",
+    "yarn": ">=1.22.19",
+    "npm": "please-use-yarn"
+  },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
     "eslint": "^7.32.0",
