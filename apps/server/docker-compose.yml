@@ -1,0 +1,64 @@
+version: '3.9'
+name: shop
+services:
+  #  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+  cache:
+    container_name: ${PROJECT_NAME}_cache_redis
+    image: redis:7.0.8-alpine
+    restart: always
+    ports:
+      - $CACHE_PORT:$CACHE_PORT
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${CACHE_PASSWORD}
+    networks:
+      - app_network
+    volumes:
+      - cache:/data
+
+  #  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+  db:
+    container_name: ${DATABASE_HOST}
+    image: postgres
+    env_file: .env
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: $DATABASE_USER
+      POSTGRES_PASSWORD: $DATABASE_PASSWORD
+      POSTGRES_DB: $DATABASE_NAME
+    ports:
+      - $DATABASE_PORT:$DATABASE_PORT
+    networks:
+      - app_network
+    volumes:
+      - db_pg_volume:/var/lib/postgres
+
+  #  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+  # api:
+  #   container_name: ${PROJECT_NAME}_api
+  #   restart: unless-stopped
+  #   env_file: .env
+  #   build: .
+  #   depends_on:
+  #     - db
+  #     - cache
+  #   ports:
+  #     - $API_PORT:$API_PORT
+  #   expose:
+  #     - $API_PORT
+  #   networks:
+  #     - app_network
+
+
+  # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+
+networks:
+  app_network:
+
+
+volumes:
+  db_pg_volume:
+  cache:
+    driver: local

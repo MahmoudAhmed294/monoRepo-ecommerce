@@ -8,7 +8,9 @@
     "dev": "rm -rf dist && yarn build && nodemon ./dist/src/index.js",
     "build": "tsc",
     "test": "jest --coverage",
-    "lint": "eslint src --fix"
+    "lint": "eslint src --fix",
+    "build:docker": "tsc",
+    "docker-compose": "docker compose -p shop up --build -d"
   },
   "keywords": [],
   "author": "",
