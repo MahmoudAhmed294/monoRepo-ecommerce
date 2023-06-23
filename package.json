@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "server": "cd ./apps/server && yarn start ",
+    "server": "cd ./apps/server && yarn start && yarn docker-compose ",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
