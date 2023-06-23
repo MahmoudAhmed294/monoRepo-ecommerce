@@ -16,7 +16,7 @@
   },
   "engines": {
     "node": ">=18.15.0",
-    "yarn": ">=1.22.0",
+    "yarn": ">=1.22.19",
     "npm": "please-use-yarn"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
-  "packageManager": "yarn@3.6.0",
+  "packageManager": "yarn@1.22.19",
   "lint-staged": {
     "apps/**/*.{js,ts,jsx,tsx}": [
       "eslint --fix"
