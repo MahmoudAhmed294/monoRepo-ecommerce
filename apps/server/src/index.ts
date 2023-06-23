@@ -1,18 +1,16 @@
 import express from 'express';
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 8080;
 
-app.get('/api', (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+app.get('/', (req, res) => {
+  res.send('Express JS on Vercel');
 });
 
-app.get('/api/item/:slug', (req, res) => {
-  const { slug } = req.params;
-  res.end(`Item: ${slug}`);
+app.get('/ping', (req, res) => {
+  res.send('pong 🏓');
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.warn('[INFO] Server Running on port:', port);
 });
