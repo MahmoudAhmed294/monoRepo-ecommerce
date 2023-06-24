@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "server": "cd ./apps/server && yarn start && yarn docker-compose ",
+    "server": "cd ./apps/server && yarn start  ",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
@@ -40,7 +40,7 @@
     "lint-staged": "^13.2.2",
     "msw": "^0.36.3",
     "prettier": "^2.5.1",
-    "turbo": "latest"
+    "turbo": "^1.10.6"
   },
   "packageManager": "yarn@1.22.19",
   "lint-staged": {
