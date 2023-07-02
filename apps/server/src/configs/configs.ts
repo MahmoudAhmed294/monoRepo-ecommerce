@@ -1,4 +1,5 @@
 type ConfigsType = {
+  API_URL: string;
   API_PORT: string;
   API_PLAYGROUND: string;
   CLIENT_URL: string;
@@ -14,6 +15,8 @@ type ConfigsType = {
 // ===========================================
 
 const configs: ConfigsType = {
+  API_URL:
+    process.env.API_URL || `http://localhost:${process.env.API_PORT}/trpc`,
   API_PORT: process.env.API_PORT || '5000',
   API_PLAYGROUND: process.env.API_PLAYGROUND || '',
   CLIENT_URL: process.env.CLIENT_URL || '3000',

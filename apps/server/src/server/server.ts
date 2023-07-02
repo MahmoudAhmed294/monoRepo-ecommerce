@@ -3,11 +3,7 @@ import path from 'path';
 import cors from 'cors';
 import logger from 'morgan';
 import configs from '../configs/configs';
-// import {
-//   trpcMiddleware,
-//   trpcDocsMiddleware,
-//   trpcPlaygroundMiddleware,
-// } from '../trpc/trpc.router';
+import { trpcDocsMiddleware, trpcMiddleware } from './trpc/trpc.route';
 // import {
 //   errorHandler,
 //   catchNotFound,
@@ -51,11 +47,11 @@ async function launchWebServer() {
   // app.use(passportAuthenticate(passport));
 
   // TRPC Router
-  // app.use('/trpc', trpcMiddleware);
+  app.use('/trpc', trpcMiddleware);
 
   // UI Development Kits
   // app.use('/playground', await trpcPlaygroundMiddleware());
-  // app.use('/panel', trpcDocsMiddleware);
+  app.use('/panel', trpcDocsMiddleware);
 
   // Error Handling
   // app.use(catchNotFound);

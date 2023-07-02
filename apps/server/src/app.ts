@@ -3,8 +3,8 @@ import dotenvExpand from 'dotenv-expand';
 
 // ==========================================
 
-import { connectDatabase } from './server/database/prisma'
-import  launchWebServer  from './server/server';
+import { connectDatabase } from './server/database/prisma';
+import launchWebServer from './server/server';
 import { connectCacheDatabase } from './server/cache/redis';
 
 // ==========================================
@@ -15,12 +15,17 @@ dotenvExpand.expand(env);
 
 // ==========================================
 
-async function main() {
-  await connectDatabase()
-  await connectCacheDatabase();
-  await launchWebServer();
-}
+(async () => {
+  try {
+    await connectDatabase();
+    await connectCacheDatabase();
+    await launchWebServer();
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
+})();
 
 // ==========================================
 
-main();
+// main();
